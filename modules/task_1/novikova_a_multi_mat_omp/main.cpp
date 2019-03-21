@@ -32,8 +32,8 @@ void Cannon(double *A, double *B, double* C, int n, int q) {
                 for (int j = 0; j < q; ++j) {
                         for (int k = 0; k < q; ++k) {
                                 MultiplayMatrix(&A[(i*n + (j + i + k) % q)*blockSize],
-						&B[(((i + j + k) % q)*n + j)*blockSize],
-						&C[(i*n + j)*blockSize], blockSize, n);
+                                                &B[(((i + j + k) % q)*n + j)*blockSize],
+                                                &C[(i*n + j)*blockSize], blockSize, n);
                         }
                 }
         }
@@ -45,7 +45,7 @@ int CheckMatrixForEqual(double *A, double *C, int N) {
         return 1;
 }
 int main(int argc, char** argv) {
-	srand((unsigned int)time(0));
+        srand((unsigned int)time(0));
         double *A, *B, *C1, *C2;
         int N = 1000, q = 2;
         if (argc == 3) {
