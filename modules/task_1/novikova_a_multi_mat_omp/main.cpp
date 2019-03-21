@@ -5,7 +5,7 @@
 
 int ShowMatrix(double* A, int N) {
         std::cout << std::endl;
-        for (int i = 0; i<N*N; i += N) {
+        for (int i = 0; i < N*N; i += N) {
                 for (int j = 0; j< N; j++)
                         std::cout << A[i + j] << " ";
                 std::cout << std::endl;
@@ -31,13 +31,15 @@ void Cannon(double *A, double *B, double* C, int n, int q) {
         for (int i = 0; i < q; ++i) {
                 for (int j = 0; j < q; ++j) {
                         for (int k = 0; k < q; ++k) {
-                                MultiplayMatrix(&A[(i*n + (j + i + k) % q)*blockSize], &B[(((i + j + k) % q)*n + j)*blockSize], &C[(i*n + j)*blockSize], blockSize, n);
+                                MultiplayMatrix(&A[(i*n + (j + i + k) % q)*blockSize],
+						&B[(((i + j + k) % q)*n + j)*blockSize],
+						&C[(i*n + j)*blockSize], blockSize, n);
                         }
                 }
         }
 }
 int CheckMatrixForEqual(double *A, double *C, int N) {
-        for (int i = 0; i<N*N; i++)
+        for (int i = 0; i < N*N; i++)
                 if (abs(A[i] - C[i]) > 0.000001)
                         return 0;
         return 1;
@@ -65,7 +67,7 @@ int main(int argc, char** argv) {
         MultiplayMatrix(A, B, C2, N, N);
         clock_t end = clock();
         // ShowMatrix(C1, N);
-	// ShowMatrix(C2, N);
+        // ShowMatrix(C2, N);
         if (CheckMatrixForEqual(C1, C2, N) == 1)
                 std::cout << "Matrices are equal" << std::endl;
         else
