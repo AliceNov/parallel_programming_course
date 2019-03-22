@@ -40,7 +40,7 @@ void Cannon(double *A, double *B, double* C, int n, int q) {
 }
 int CheckMatrixForEqual(double *A, double *C, int N) {
         for (int i = 0; i < N*N; i++)
-                if (abs(A[i] - C[i]) > 0.000001)
+                if (std::abs(A[i] - C[i]) > 0.000001)
                         return 0;
         return 1;
 }
