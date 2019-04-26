@@ -8,7 +8,7 @@ int ShowMatrix(double* A, int N) {
     std::cout << std::endl;
     for (int i = 0; i < N*N; i += N) {
         for (int j = 0; j< N; j++)
-			std::cout << A[i + j] << " ";
+                std::cout << A[i + j] << " ";
         std::cout << std::endl;
     }
     std::cout << std::endl;
