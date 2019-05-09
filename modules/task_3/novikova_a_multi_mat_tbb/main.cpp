@@ -30,7 +30,7 @@ void MultiplayMatrix(double* A, double* B, double* C, int blockSize, int n) {
 class MultiMatrixTBB{
     double *A, *B, *C;
     int n, q;
-public:
+ public:
     MultiMatrixTBB(double *a, double *b, double *c,
         int n2, int q2) : A(a), B(b), C(c), n(n2), q(q2) {}
     void operator()(const tbb::blocked_range2d<int>& r) const {
@@ -58,7 +58,7 @@ void Cannon(double *A, double *B, double* C, int n, int q) {
         }
     }
 }
-void CannonTBB(double *A, double *B, double* C, int n, int q, int gSize){
+void CannonTBB(double *A, double *B, double* C, int n, int q, int gSize) {
     tbb::task_scheduler_init init;
     tbb::parallel_for(tbb::blocked_range2d<int>(0, q, gSize, 0, q, gSize),
         MultiMatrixTBB(A, B, C, n, q));
