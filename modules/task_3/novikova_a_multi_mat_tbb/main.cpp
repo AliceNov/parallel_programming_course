@@ -91,13 +91,13 @@ int main(int argc, char** argv) {
     tbb::tick_count sTime1 = tbb::tick_count::now();
     Cannon(A, B, C1, N, q);
     tbb::tick_count fTime1 = tbb::tick_count::now();
-    std::cout << "Time for Cannon " << (fTime1 - sTime1).seconds << std::endl;
+    std::cout << "Time for Cannon " << (fTime1 - sTime1).seconds() << std::endl;
     // ShowMatrix(C1, N);
     tbb::tick_count sTime2 = tbb::tick_count::now();
     CannonTBB(A, B, C2, N, q, gSize);
     tbb::tick_count fTime2 = tbb::tick_count::now();
     // ShowMatrix(C2, N);
-    std::cout << "Time for CannonTBB " << (fTime2 - sTime2).seconds << std::endl;
+    std::cout << "Time for CannonTBB " << (fTime2 - sTime2).seconds() << std::endl;
     if (CheckMatrixForEqual(C1, C2, N) == 1)
         std::cout << "Matrices are equal" << std::endl;
     else
